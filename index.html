@@ -2,6 +2,8 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -10,12 +12,33 @@
 
     <div class="content">
 
-        <form id="add-cafe-form"></form>
+        <form id="add-cafe-form">
+            <input type="text" name="name" placeholder="Cafe name">
+            <input type="text" name="city" placeholder="cafe location">
+            <button id="btn">add cafe</button>
+        </form>
 
         <ul id="cafe-list"></ul>
 
     </div>
 
+
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAJmBcjWdVxHywaWxEmWtnBXhGk6avO8Mw",
+            authDomain: "cloud-coffee-53249.firebaseapp.com",
+            projectId: "cloud-coffee-53249",
+            storageBucket: "cloud-coffee-53249.appspot.com",
+            messagingSenderId: "85513858478",
+            appId: "1:85513858478:web:24d956ba946872a7d7ec3f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true })
+    </script>
     <script src="app.js"></script>
 </body>
 
